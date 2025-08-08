@@ -1,0 +1,52 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start; /* Usa 'center' si quieres que estén centradas */
+}
+
+.category-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* CARD ESTILO */
+.card {
+  width: 120px;
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 12px;
+  background-color: #2c2c54;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card.active {
+  background-color: #5B9DD4;
+  color: #fff;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card small {
+  font-size: 12px;
+  color: #d1d1d1;
+}

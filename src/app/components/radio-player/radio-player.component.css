@@ -1,0 +1,22 @@
+.player-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #0D004F;
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}

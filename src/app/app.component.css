@@ -1,0 +1,20 @@
+body {
+  background-color: #f2f4f8;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}

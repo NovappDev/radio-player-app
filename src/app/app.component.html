@@ -1,0 +1,11 @@
+<div class="container">
+  <app-radio-player [station]="selectedStation" />
+<app-station-list
+  [selectedStation]="selectedStation"
+  (selectStation)="onStationSelected($event)"
+></app-station-list>
+</div>
+
+<footer class="footer">
+  <p>Derechos Reservados &copy; <a target="_blank" href="www.novapp.co">Novapp</a></p>
+</footer>

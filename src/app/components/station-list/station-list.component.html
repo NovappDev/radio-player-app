@@ -1,0 +1,20 @@
+<div *ngIf="stations.length">
+  <ng-container *ngFor="let category of categories">
+    <h3>{{ category }}</h3>
+    <div class="grid">
+      <ng-container *ngFor="let station of getStationsByCategory(category)">
+        <div
+          class="card"
+          [class.active]="station === selectedStation"
+          (click)="onSelect(station)"
+        >
+          <img [src]="station.logoUrl" alt="{{ station.name }}" />
+          <p>
+            {{ station.name }}<br />
+            <small>{{ station.city }} - {{ station.dial }}</small>
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

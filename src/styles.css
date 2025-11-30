@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+:root {
+    --font-main: 'Outfit', sans-serif;
+    --color-bg-dark: #0f0c29;
+    --color-bg-mid: #302b63;
+    --color-bg-light: #24243e;
+    --color-text: #eaf2ff;
+    --color-accent: #ff0055;
+    /* Pinkish Red for active states */
+    --color-glass: rgba(255, 255, 255, 0.1);
+    --color-glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-mid), var(--color-bg-light));
+    color: var(--color-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.5s ease;
+}
+
+/* Country Backgrounds */
+body.bg-colombia {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+body.bg-mexico {
+    background: linear-gradient(50deg, #0a8801, #BD2300);
+    /* Blue/Greenish */
+}
+
+body.bg-rd {
+    background: linear-gradient(135deg, #CB356B, #BD3F32);
+    /* Reddish */
+}
+
+body.bg-salvador {
+    background: linear-gradient(135deg, #00416A, #E4E5E6);
+    /* Blue/White/Grey */
+}
+
+body.bg-otros {
+    background: linear-gradient(135deg, #114357, #F29492);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-glass-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}

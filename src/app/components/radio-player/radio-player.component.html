@@ -1,9 +1,41 @@
-<div class="player-container">
-  <img [src]="station.logoUrl" alt="{{ station.name }}" class="logo" />
-  <div class="info">
-  <h2>{{ station.name }}</h2>
-  <p>{{ station.city }}<p>
-  <p>{{ station.dial }}</p>
-  <audio controls [src]="station.streamUrl" autoplay></audio>
-</div>
+<div class="player-container" [style.backgroundImage]="'url(' + station.logoUrl + ')'">
+  <div class="glass-overlay">
+    <!-- Contenido Principal -->
+    <div class="content-wrapper">
+      <!-- Logo de la estación -->
+      <div class="logo-wrapper">
+        <img *ngIf="station.logoUrl" [src]="station.logoUrl" alt="{{ station.name }}" class="station-logo" />
+      </div>
+
+      <!-- Info y Controles -->
+      <div class="info-panel">
+        <div class="station-details">
+          <h2 class="station-name">{{ station.name }}</h2>
+          <p class="station-meta" *ngIf="station.city || station.dial">
+            <span class="city">{{ station.city }}</span>
+            <span class="separator" *ngIf="station.city && station.dial">•</span>
+            <span class="dial">{{ station.dial }}</span>
+          </p>
+        </div>
+
+        <!-- Reproductor de Audio (Radio) -->
+        <div class="audio-controls" *ngIf="isRadio()">
+          <audio #audioPlayer controls autoplay [src]="station.streamUrl"></audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reproductor de Video (YouTube) - Se superpone o se muestra aparte -->
+    <div *ngIf="isYouTube()" class="video-container">
+      <div class="video-wrapper">
+        <iframe
+          [src]="safeYoutubeUrl"
+          title="YouTube player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
 </div>

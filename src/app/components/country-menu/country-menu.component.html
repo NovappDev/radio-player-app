@@ -1,0 +1,10 @@
+<div class="country-menu">
+  <button
+    *ngFor="let country of countries"
+    class="country-btn"
+    [class.active]="country.id === selectedCountry"
+    (click)="selectCountry(country.id)"
+  >
+    {{ country.name }}
+  </button>
+</div>

@@ -1,0 +1,6 @@
+<div class="ads-container">
+  <div class="ad-slide" *ngFor="let ad of ads; let i = index" [class.active]="i === currentAdIndex">
+    <img [src]="ad.url" [alt]="ad.alt" />
+  </div>
+  <div class="ad-badge">Publicidad</div>
+</div>

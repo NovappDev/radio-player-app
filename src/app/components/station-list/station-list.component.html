@@ -1,6 +1,7 @@
 <div *ngIf="stations.length">
   <ng-container *ngFor="let category of categories">
-    <h3>{{ category }}</h3>
+    <h3 id="{{ category.toLowerCase() }}" class="category-title">{{ category }}</h3>
+
     <div class="grid">
       <ng-container *ngFor="let station of getStationsByCategory(category)">
         <div
@@ -8,10 +9,23 @@
           [class.active]="station === selectedStation"
           (click)="onSelect(station)"
         >
-          <img [src]="station.logoUrl" alt="{{ station.name }}" />
+          <!-- Thumbnail YouTube o logo -->
+          <img
+            *ngIf="station.youtubeId; else logoBlock"
+            [src]="'https://img.youtube.com/vi/' + station.youtubeId + '/0.jpg'"
+            [alt]="'Miniatura de ' + station.name"
+          />
+          <ng-template #logoBlock>
+            <img [src]="station.logoUrl" [alt]="'Logo de ' + station.name" />
+          </ng-template>
+
           <p>
             {{ station.name }}<br />
-            <small>{{ station.city }} - {{ station.dial }}</small>
+            <small>
+              {{ station.city }}
+              <span *ngIf="station.city && station.dial">-</span>
+              {{ station.dial }}
+            </small>
           </p>
         </div>
       </ng-container>

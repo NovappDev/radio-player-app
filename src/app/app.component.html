@@ -1,9 +1,23 @@
 <div class="container">
-  <app-radio-player [station]="selectedStation" />
-<app-station-list
-  [selectedStation]="selectedStation"
-  (selectStation)="onStationSelected($event)"
-></app-station-list>
+  <!-- 1. Menú de Países -->
+  <app-country-menu (countrySelected)="onCountrySelected($event)"></app-country-menu>
+
+  <!-- 2. Área Principal: Player + Publicidad -->
+  <div class="main-area">
+    <div class="player-wrapper">
+      <app-radio-player [station]="selectedStation"></app-radio-player>
+    </div>
+    <div class="ads-wrapper">
+      <app-ads-banner></app-ads-banner>
+    </div>
+  </div>
+
+  <!-- 3. Lista de Estaciones (Filtrada por país) -->
+  <app-station-list
+    [selectedStation]="selectedStation"
+    [filterCountry]="selectedCountry"
+    (selectStation)="onStationSelected($event)"
+  ></app-station-list>
 </div>
 
 <footer class="footer">
